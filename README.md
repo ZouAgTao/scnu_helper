@@ -55,7 +55,7 @@ pages里面有**index**、**book**、**travel**、**visit**共**4**个页面
 
 由于没有解析该模块代码，完整开发建议暂无
 
-> 目前提供的一个开发思路是，文章保存成markdown格式，上传到**数据库**或者**存储**中，图片如果保存到**存储**中，持久有效的只有**文件ID**，所以在onLoad里要解析fileID为fileURL，再用解析MD的组件（比如WxParse【https://github.com/icindy/wxParse】）等，解析并展示。
+> 目前提供的一个开发思路是，文章保存成markdown格式，上传到**数据库**或者**存储**中，图片如果保存到**存储**中，持久有效的只有**文件ID**，所以在onLoad里要解析fileID为fileURL，再用解析MD的组件（比如WxParse【https://github.com/icindy/wxParse 】）等，解析并展示。
 >
 > 目录信息可以保存在本地
 >
