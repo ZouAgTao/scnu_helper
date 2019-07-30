@@ -1,0 +1,61 @@
+<cover-view class="navigator" style="height:{{navHeight}}rpx;">
+  <cover-view style="height:{{statusBarHeight}}rpx"></cover-view>
+  <cover-view class="btn_nav_back" bindtap="onClick_toBack">
+    <cover-view class="btn_nav_back_text">{{text_back}}</cover-view>
+  </cover-view>
+</cover-view>
+<view class="outer">
+  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" class="block_map" markers="{{markers}}" show-location="{{showlocable}}">
+    <cover-image class="btn_getlocation" src="/img/location.png" bindtap="onClick_GetLocation"></cover-image>
+  </map>
+  <view class="block_function" style="height:{{autoHeight}}rpx;top:{{topHeight}}rpx;">
+    <cover-view class="circle_bar"></cover-view>
+    <view class="block_tab">
+      <view class="card_tab" bindtap="onClick_TabCollection" style="{{style_tab[0]}};border-right: 4rpx solid rgba(187, 187, 187, 1);">
+        <text class="tab_title">我的收藏</text>
+      </view>
+      <view class="card_tab" bindtap="onClick_TabAround" style="{{style_tab[1]}};border-right: 4rpx solid rgba(187, 187, 187, 1);">
+        <text class="tab_title">周边出行</text>
+      </view>
+      <view bindtap="onClick_TabSchoolBus" style="{{style_tab[2]}};" class="card_tab">
+        <text class="tab_title">校车时刻</text>
+      </view>
+    </view>
+    <scroll-view scroll-y class="block_content" style="height:{{autoHeight-118}}rpx;" scroll-into-view="{{now_siteitem}}" scroll-with-animation scroll-top="{{scroll_top}}">
+      <block wx:if="{{now_tab==0}}">
+        从本地存储中读取显示
+      </block>
+      <block wx:elif="{{now_tab==1}}">
+        <view class="card_around_site">
+          <view class="card_around_site_up">
+            <text class="card_around_site_title">和信广场</text>
+            <image class="card_around_site_star"></image>
+          </view>
+          <view class="card_around_site_down">
+            <image class="card_around_site_bus_icon"></image>
+            <image class="card_around_site_bus_bar"></image>
+            <image class="card_around_site_bus_bar"></image>
+          </view>
+        </view>
+        <view class="card_around_site">
+          <view class="card_around_site_up">
+            <text class="card_around_site_title">狮山广场</text>
+            <image class="card_around_site_star"></image>
+          </view>
+          <view class="card_around_site_down">
+            <image class="card_around_site_bus_icon"></image>
+            <image class="card_around_site_bus_bar"></image>
+            <image class="card_around_site_bus_bar"></image>
+          </view>
+        </view>
+      </block>
+      <view class="block_schoolbus" wx:else>
+        <image class="card_img"></image>
+        <view class="btn_save_img" bindtap="onClick_SaveImage">
+          <image class="btn_save_img_icon"></image>
+          <text class="btn_save_img_text">保存图片</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

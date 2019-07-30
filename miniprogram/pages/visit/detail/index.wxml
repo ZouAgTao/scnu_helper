@@ -1,0 +1,29 @@
+<view class="outer">
+  <!-- <view class="navigator" style="height:{{navHeight}}rpx;"> -->
+  <view class="navigator" style="height:10%;">
+    <view style="height:{{statusBarHeight}}rpx"></view>
+    <view class="btn_nav_back" bindtap="onClick_toBack">
+      <view class="btn_nav_back_text">{{text_back}}</view>
+    </view>
+  </view>
+  <!-- <scroll-view scroll-y class="block_main" style="height:{{mainContentHeight}}rpx;">
+   -->
+  <scroll-view scroll-y class="block_main" style="height:85%;">
+    <view class="card_content" style="height:{{card_height}}rpx">
+      <swiper indicator-dots autoplay interval="2000" circular class="area_images">
+        <block wx:for="{{site_data.info.icons}}" wx:key="{{index}}">
+          <swiper-item class="logo">
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="area_title">
+        <text class="title">{{site_data.title}}</text>
+        <view class="btn_gosite" bindtap="onClick_GoSite">
+          <image class="btn_icon"></image>
+          <text class="btn_text">到这去</text>
+        </view>
+      </view>
+      <text class="area_text" style="height:{{text_height}}rpx">{{site_data.info.text}}</text>
+    </view>
+  </scroll-view>
+</view>

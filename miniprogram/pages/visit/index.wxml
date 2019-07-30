@@ -1,0 +1,75 @@
+<cover-view class="navigator" style="height:{{navHeight}}rpx;">
+  <cover-view style="height:{{statusBarHeight}}rpx"></cover-view>
+  <cover-view class="btn_nav_back" bindtap="onClick_toBack">
+    <cover-view class="btn_nav_back_text">{{text_back}}</cover-view>
+  </cover-view>
+</cover-view>
+<view class="outer">
+  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="17" class="block_map" markers="{{markers}}" skew="40" enable-overlooking enable-3D show-location="{{showlocable}}" rotate="45" enable-satellite="{{satellitable}}"  bindmarkertap="onClick_TapMarker" bindcallouttap="onClick_TapCallout">
+    <cover-image class="btn_change_mapmode" src="/img/switch.png" bindtap="onClick_ChangeMode"></cover-image>
+    <cover-image class="btn_getlocation" src="/img/location.png" bindtap="onClick_GetLocation"></cover-image>
+  </map>
+  <view class="block_function" style="height:{{autoHeight}}rpx;top:{{topHeight}}rpx;">
+    <cover-view class="circle_bar"></cover-view>
+    <scroll-view scroll-x class="card_tabBar" scroll-into-view="{{now_type}}" scroll-with-animation>
+      <view id="tab_all" class="content_tab" bindtap="onClick_ShowAll">
+        <view class="content_tab_container">
+          <image mode="aspectFill" src="/img/visit_tab_all{{style_content_tab[0].icon}}.png" class="content_tab_icon"></image>
+          <text class="{{style_content_tab[0].text}}">全部</text>
+        </view>
+      </view>
+      <view id="tab_xiaomen" class="content_tab" bindtap="onClick_ShowXiaoMen">
+        <view class="content_tab_container">
+          <image mode="aspectFill" src="/img/visit_tab_xiaomen{{style_content_tab[1].icon}}.png" class="content_tab_icon"></image>
+          <text class="{{style_content_tab[1].text}}">校门</text>
+        </view>
+      </view>
+      <view id="tab_jianzhu" class="content_tab" bindtap="onClick_ShowJianZhu">
+        <view class="content_tab_container">
+          <image mode="aspectFill" src="/img/visit_tab_jianzhu{{style_content_tab[2].icon}}.png" class="content_tab_icon"></image>
+          <text class="{{style_content_tab[2].text}}">建筑</text>
+        </view>
+      </view>
+      <view id="tab_sushe" class="content_tab" bindtap="onClick_ShowSuShe">
+        <view class="content_tab_container">
+          <image mode="aspectFill" src="/img/visit_tab_sushe{{style_content_tab[3].icon}}.png" class="content_tab_icon"></image>
+          <text class="{{style_content_tab[3].text}}">宿舍</text>
+        </view>
+      </view>
+      <view id="tab_canyin" class="content_tab" bindtap="onClick_ShowCanYin">
+        <view class="content_tab_container">
+          <image mode="aspectFill" src="/img/visit_tab_canyin{{style_content_tab[4].icon}}.png" class="content_tab_icon"></image>
+          <text class="{{style_content_tab[4].text}}">餐饮</text>
+        </view>
+      </view>
+      <view id="tab_yundong" class="content_tab" bindtap="onClick_ShowYunDong">
+        <view class="content_tab_container">
+          <image mode="aspectFill" src="/img/visit_tab_yundong{{style_content_tab[5].icon}}.png" class="content_tab_icon"></image>
+          <text class="{{style_content_tab[5].text}}">运动</text>
+        </view>
+      </view>
+      <view id="tab_sheshi" class="content_tab" bindtap="onClick_ShowSheShi">
+        <view class="content_tab_container">
+          <image mode="aspectFill" src="/img/visit_tab_sheshi{{style_content_tab[6].icon}}.png" class="content_tab_icon"></image>
+          <text class="{{style_content_tab[6].text}}">设施</text>
+        </view>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y class="card_slideBar" style="height:{{autoHeight-100}}rpx"  scroll-into-view="{{now_siteitem}}" scroll-with-animation scroll-top="{{scroll_top}}">
+      <block wx:for="{{site_data}}" wx:key="{{index}}">
+        <view id="{{item.id}}" data-index_id="{{index}}" wx:if="{{item.showable}}" class="card_bar" bindtap="onClick_TapItem">
+          <view wx:if="{{now_siteitem!=item.id}}" class="card_bar_decorator" style="background-color: {{item.color}};"></view>
+          <view wx:else>
+            <image class="card_bar_cursor" src="/img/cursor.png"></image>
+          </view>
+          <view class="card_bar_icon"></view>
+          <view class="card_bar_title_group">
+            <text class="card_bar_title_group_title">{{item.title}}</text>
+            <view class="card_bar_title_group_line"></view>
+            <text class="card_bar_title_group_subtitle">{{item.sub_title}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

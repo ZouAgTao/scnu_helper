@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/visit/index",
+    "pages/book/index",
+    "pages/travel/index",
+    "pages/visit/detail/index"
+  ],
+  "window": {
+    "backgroundColor": "#D9D9D9",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#002d54",
+    "navigationBarTitleText": "华师小助手",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "显示当前位置"
+    }
+  }
+}

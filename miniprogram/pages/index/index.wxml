@@ -1,0 +1,32 @@
+<view class="outer">
+  <scroll-view scroll-y style="width:100%;height:100%;">
+    <view style="height:{{navHeight}}px;"></view>
+    <view class="block_title">
+      <text class="title_url_about" bindtap="onClick_aboutUs">关于我们></text>
+      <text class="title_title">欢迎来到华师南海校区</text>
+    </view>
+    <view class="block_enter">
+      <view class="block_card_button" bindtap="onClick_toPageBook">
+        <view class="content_title">
+          <text class="content_title_title">新生攻略2019</text  >
+          <text class="content_title_subtitle">开启你的大学生活</text>
+        </view>
+        <image class="content_icon" src="/img/index_book.png"></image>
+      </view>
+      <view class="block_card_button" bindtap="onClick_toPageVisit">
+        <view class="content_title">
+          <text class="content_title_title">校园导览</text>
+          <text class="content_title_subtitle">带你看看校园风光</text>
+        </view>
+        <image class="content_icon" src="/img/index_visit.png"></image>
+      </view>
+      <view class="block_card_button" bindtap="onClick_toPagetravel">
+        <view class="content_title">
+          <text class="content_title_title">交通出行</text>
+          <text class="content_title_subtitle">学校周边出行路线</text>
+        </view>
+        <image class="content_icon" src="/img/index_travel.png"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>
