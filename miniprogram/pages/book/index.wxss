@@ -1,1 +1,2 @@
 /* miniprogram/pages/book/index.wxss */
+@import '/towxml/style/main.wxss';

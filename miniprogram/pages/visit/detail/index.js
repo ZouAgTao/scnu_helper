@@ -3,8 +3,7 @@ Page({
   data: {
     site_data:{},
     text_back: "< 返回",
-    text_height:390,
-    card_height:1000
+    card_height:1700
   },
 
   onLoad: function (options)
@@ -113,8 +112,8 @@ Page({
   onClick_GoSite: function()
   {
     wx.openLocation({
-      latitude: this.data.site_data.position.lat,
-      longitude: this.data.site_data.position.lng,
+      latitude: Number(this.data.site_data.position.lng),
+      longitude: Number(this.data.site_data.position.lat),
       name: this.data.site_data.title,
       address: this.data.site_data.sub_title
     });

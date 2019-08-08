@@ -127,7 +127,7 @@
 .block_schoolbus
 {
   width: 100%;
-  height: 850rpx;
+  height: 700rpx;
 
   display: flex;
   flex-direction: column;
@@ -140,12 +140,10 @@
   margin-left: 34rpx;
   margin-top: 10rpx;
   width: 682rpx;
-  height: 734rpx;
+  height: 506rpx;
   border-radius: 20rpx;
   color: rgba(16, 16, 16, 1);
   box-shadow: 0rpx 0rpx 4rpx 0rpx rgba(170, 170, 170, 1);
-
-  background-color: yellow;
 }
 
 .btn_save_img
@@ -167,7 +165,6 @@
 {
   width: 46rpx;
   height: 46rpx;
-  background: yellow;
 }
 
 .btn_save_img_text
@@ -232,8 +229,6 @@
   margin-right: 44rpx;
   width: 58rpx;
   height: 58rpx;
-  
-  background-color: yellow;
 }
 
 .card_around_site_bus_icon
@@ -241,8 +236,6 @@
   margin-left: 40rpx;
   width: 48rpx;
   height: 48rpx;
-
-  background-color: yellow;
 }
 
 .card_around_site_bus_bar
@@ -251,5 +244,67 @@
   width: 128rpx;
   height: 48rpx;
   border-radius: 40rpx;
-  background-color: rgba(118, 166, 251, 1);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.bus_text
+{
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  font-family: SourceHanSansSC-bold;
+  font-weight: bold;
+}
+
+.detail_block
+{
+  margin-top: 4rpx;
+  margin-left: 52rpx;
+
+  width: 654rpx;
+  height: 294rpx;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.detail_block_title
+{
+  width: 100%;
+  height: 40rpx;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail_block_title_text
+{
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-bold;
+  font-weight: bold;
+}
+
+.detail_block_content_text
+{
+  color: rgba(116, 118, 123, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-bold;
+  font-weight: bold;
+
+  margin-top: 28rpx;
+}
+
+.detail_block_content_line
+{
+  width: 654rpx;
+  border-top: 2rpx solid rgba(187, 187, 187, 1);
+  margin-top: 26rpx;
 }

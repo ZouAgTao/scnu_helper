@@ -1,0 +1,12 @@
+<view class="outer">
+  <view class="navigator" style="height:{{navHeight}}rpx;">
+    <view style="height:{{statusBarHeight}}rpx"></view>
+    <view class="btn_nav_back" bindtap="onClick_toBack">
+      <view class="btn_nav_back_text">{{text_back}}</view>
+    </view>
+  </view>
+  <image class="block_image" src="/img/bustime_b.png"></image>
+  <view class="btn_save_img" bindtap="onClick_SaveImage">
+    <text class="btn_save_img_text">保存到相册</text>
+  </view>
+</view>

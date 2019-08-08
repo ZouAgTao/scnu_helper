@@ -1,3 +1,4 @@
+var config = require('config.js');
 const App = getApp();
  
 Page({
@@ -78,6 +79,11 @@ Page({
     //导航栏高度
     this.setData({
       navHeight: App.globalData.navHeight * 2 + 90
+    });
+
+    //初始化载入bus_bar_color数据
+    this.setData({
+      bus_bar_color: config.BusBarColor
     });
   },
 
@@ -187,18 +193,27 @@ Page({
   //点击【保存图片】按钮触发
   onClick_SaveImage: function()
   {
-    wx.saveImageToPhotosAlbum({
-      filePath: '/img/cursor.png',
-      success(res) {
-        wx.showToast({
-          title: '保存成功',
-        });
-      },
-      fail(res) {
-        wx.showToast({
-          title: '保存失败',
-        });
-      }
+    wx.navigateTo({
+      url: '/pages/travel/save_image/index',
     });
+  },
+
+  //点击地点项目触发
+  onClick_SiteBar: function(e)
+  {
+    var id = e.currentTarget.id;
+
+    if(this.data.now_siteitem == id)
+    {
+      this.setData({
+        now_siteitem: ""
+      });
+    }
+    else
+    {
+      this.setData({
+        now_siteitem: id
+      });
+    }
   }
 })

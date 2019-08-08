@@ -1,4 +1,5 @@
 //app.js
+const Towxml = require('/towxml/main');
 App({
   globalData: {
     navHeight: 0
@@ -26,5 +27,26 @@ App({
         that.globalData.screenHeight = res.screenHeight;
       }
     });
-  }
+  },
+  //创建一个towxml对象，供其它页面调用
+  towxml: new Towxml(),
+
+  //声明Markdown文件目录路径
+  docDir: 'https://7363-scnu-dev-iyplf-1259750702.tcb.qcloud.la/',
+
+  //声明一个数据请求方法
+  getText: (url, callback) => {
+    wx.request({
+      url: url,
+      header: {
+        'content-type': 'application/octet-stream'
+      },
+      success: (res) => {
+        if (typeof callback === 'function') {
+          callback(res);
+        };
+      }
+    });
+  },
+  towxml : new Towxml()
 })

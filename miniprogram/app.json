@@ -4,7 +4,11 @@
     "pages/visit/index",
     "pages/book/index",
     "pages/travel/index",
-    "pages/visit/detail/index"
+    "pages/visit/detail/index",
+    "pages/test/index",
+    "pages/menu/index",
+    "pages/result/index",
+    "pages/travel/save_image/index"
   ],
   "window": {
     "backgroundColor": "#D9D9D9",

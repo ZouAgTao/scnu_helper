@@ -19,11 +19,11 @@
       <view class="area_title">
         <text class="title">{{site_data.title}}</text>
         <view class="btn_gosite" bindtap="onClick_GoSite">
-          <image class="btn_icon"></image>
+          <image class="btn_icon" src="/img/visit_detail_btn_gothere.png"></image>
           <text class="btn_text">到这去</text>
         </view>
       </view>
-      <text class="area_text" style="height:{{text_height}}rpx">{{site_data.info.text}}</text>
+      <text class="area_text">{{site_data.info.text}}</text>
     </view>
   </scroll-view>
 </view>

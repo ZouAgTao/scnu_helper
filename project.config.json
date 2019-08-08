@@ -40,12 +40,56 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 6,
 			"list": [
 				{
+					"id": 0,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "travel",
+					"pathName": "pages/travel/index",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"name": "visit",
+					"pathName": "pages/visit/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "visit(detail)",
+					"pathName": "pages/visit/detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "book",
+					"pathName": "pages/book/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "test",
+					"pathName": "pages/test/index",
+					"query": "name=校园概况",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "result",
+					"pathName": "pages/result/index",
+					"query": "name=校园概况",
+					"scene": null
 				}
 			]
 		}

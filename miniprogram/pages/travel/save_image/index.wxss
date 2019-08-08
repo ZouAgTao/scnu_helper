@@ -1,0 +1,77 @@
+.outer
+{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.navigator
+{
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.btn_nav_back
+{
+  width: 158rpx;
+  height: 64rpx;
+  margin-left: 26rpx;
+  margin-top: 14rpx;
+
+  background-color: #555454;
+  border-radius: 6rpx;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_nav_back_text
+{
+  color: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-bold;
+  font-weight: bold;
+}
+
+.block_image
+{
+  margin-left: 34rpx;
+  margin-top: 76rpx;
+  width: 682rpx;
+  height: 734rpx;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 0rpx 4rpx 0rpx rgba(170, 170, 170, 1);
+}
+
+.btn_save_img
+{
+  margin-left: 250rpx;
+  margin-top: 192rpx;
+  width: 274rpx;
+  height: 88rpx;
+  border-radius: 52rpx;
+  background-color: rgba(118, 166, 251, 1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_save_img_text
+{
+  color: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  font-family: PingFangSC-bold;
+  font-weight: bold;
+}

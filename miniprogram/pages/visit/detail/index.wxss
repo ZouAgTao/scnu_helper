@@ -60,6 +60,7 @@
 {
   margin-top: 26rpx;
   margin-left: 36rpx;
+  margin-bottom: 10rpx;
   width: 678rpx;
   border-radius: 10rpx;
   box-shadow: 0rpx 0rpx 4rpx 0rpx rgba(170, 170, 170, 1);
@@ -101,8 +102,6 @@
 {
   margin-top: 34rpx;
   width: 572rpx;
-
-  background-color: yellow;
 }
 
 .title
@@ -131,7 +130,6 @@
   margin-left: 18rpx;
   width: 48rpx;
   height: 48rpx;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 .btn_text
