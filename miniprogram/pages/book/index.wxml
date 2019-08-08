@@ -1,5 +1,75 @@
-<view style="height:{{navHeight}}px;"></view>
-<!-- <view>此页面待完成</view> -->
-<!--引入towxml模版入口文件，并使用模版-->
-<import src="/towxml/entry.wxml"/>
-<template is="entry" data="{{...article}}"/>
+<!--index.wxml-->
+
+<!-- 返回按钮 -->
+
+
+<!-- ********************************************************************** -->
+
+<!-- 侧拉栏 start-->
+<view class="page-slidebar">
+  <view class="page-content">
+    <view class="wc">
+      <navigator url='index?name=校园概况' hover-class="navigator-hover">校园概况</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=报道流程' hover-class="navigator-hover">报道流程</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=缴费' hover-class="navigator-hover">缴费</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=常见问题' hover-class="navigator-hover">常见问题</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=常用网站' hover-class="navigator-hover">常用网站</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=时间表' hover-class="navigator-hover">时间表</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=关于军训' hover-class="navigator-hover">关于军训</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=关于快递' hover-class="navigator-hover">关于快递</navigator>
+    </view>
+  </view>
+</view>
+
+<!-- 侧拉栏 end-->
+
+<!-- ********************************************************************** -->
+
+<!-- markdown显示区 start -->
+
+<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? ['c-state','cover'] : ''}} ">
+
+  <!-- 开头 -->
+  <!-- 未完成，由于暂时没有目录信息固设置为静态 -->
+  <view class='card'></view>
+  <view class='pretitle'>入学必备</view>
+  <view class='title'>行前准备</view>
+
+
+  <!--使用towxml-->
+
+    <scroll-view class="text">
+      <import src="/towxml/entry.wxml" />
+      <template is="entry" data="{{...article}}" />
+    </scroll-view>
+
+  <!-- menu tab -->
+  <view class='index'>
+    <view class='index_text' style='left:230rpx;' bindtap='tap_ch'>☰目录</view>
+  </view>
+
+  <!-- search tab -->
+  <!-- <input class='search' bindinput='bindInput'>
+  <button class='search_button' bindtap='setSearchStorage'>搜索</button>
+  <image src='../../img/search.svg' class='icon'></image>
+  </input> -->
+
+</view>
+
+<!-- markdown显示区 end -->
+
+<!-- ********************************************************************** -->

@@ -1,7 +1,12 @@
 <!--index.wxml-->
 
 <!-- 返回按钮 -->
-
+<cover-view class="navigator" style="height:{{navHeight}}rpx;top:50rpx;">
+  <cover-view style="height:{{statusBarHeight}}rpx"></cover-view>
+  <cover-view class="btn_nav_back" bindtap="onClick_toBack">
+    <cover-view class="btn_nav_back_text">{{text_back}}</cover-view>
+  </cover-view>
+</cover-view>
 
 <!-- ********************************************************************** -->
 
@@ -32,6 +37,12 @@
     <view class="wc">
       <navigator url='index?name=关于快递' hover-class="navigator-hover">关于快递</navigator>
     </view>
+    <view class="wc">
+      <navigator url='index?name=diet' hover-class="navigator-hover">校内餐饮</navigator>
+    </view>
+    <view class="wc">
+      <navigator url='index?name=dormitory' hover-class="navigator-hover">宿舍介绍</navigator>
+    </view>
   </view>
 </view>
 
@@ -51,23 +62,24 @@
 
 
   <!--使用towxml-->
-  <scroll-view class="text">
-    <view>
+
+    <scroll-view class="text">
       <import src="/towxml/entry.wxml" />
       <template is="entry" data="{{...article}}" />
-    </view>
-  </scroll-view>
+    </scroll-view>
 
   <!-- menu tab -->
   <view class='index'>
-    <view class='index_text' style='left:230rpx;' bindtap='tap_ch'>☰目录</view>
+    <view class='index_text' style='left:310rpx;' bindtap='tap_ch'>☰目录</view>
+    <view class='index_text' style='left:120rpx;color:{{color}}' bindtap='jump_to_last'>上一章</view>
+    <view class='index_text' style='left:500rpx;color:{{color}}' bindtap='jump_to_next'>下一章</view>
   </view>
 
   <!-- search tab -->
-  <input class='search' bindinput='bindInput'>
+  <!-- <input class='search' bindinput='bindInput'>
   <button class='search_button' bindtap='setSearchStorage'>搜索</button>
   <image src='../../img/search.svg' class='icon'></image>
-  </input>
+  </input> -->
 
 </view>
 

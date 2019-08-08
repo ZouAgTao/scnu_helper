@@ -29,7 +29,7 @@ App({
     });
   },
   //创建一个towxml对象，供其它页面调用
-  towxml: new Towxml(),
+  
 
   //声明Markdown文件目录路径
   docDir: 'https://7363-scnu-dev-iyplf-1259750702.tcb.qcloud.la/',

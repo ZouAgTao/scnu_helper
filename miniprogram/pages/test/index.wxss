@@ -5,13 +5,13 @@
 
 /**主题配色**/
 @import '/towxml/style/main.wxss';
-
+@import '../travel/index.wxss';
 
 .text{
   background: #fff;
   text-align: 100rpx;
   position: relative;
-  top: 380rpx;
+  top: 340rpx;
   /* left: 50rpx; */
 }
 
@@ -26,22 +26,22 @@
 }
 
 .index_text{
-  position: relative;
+  position: fixed;
   color: #fff;
-  padding-top: 10rpx;
+  padding-top: 8rpx;
   width: 150rpx;
 }
 
 .pretitle{
   position: fixed;
-  top: 260rpx;
+  top: 200rpx;
   left: 120rpx;
   font-size: 30rpx;
   color: #595959;
 }
 .card{
   position: fixed;
-  top: 310rpx;
+  top: 250rpx;
   left: 60rpx;
   background-color: #1890FF;
   width: 20rpx;
@@ -49,7 +49,7 @@
 }
 .title{
   position: fixed;
-  top: 305rpx;
+  top: 245rpx;
   left: 100rpx;
   font-size: 50rpx;
   color: black;
