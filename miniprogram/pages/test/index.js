@@ -17,8 +17,10 @@ Page({
     open: false,
     // mark 是指原点x轴坐标
     mark: 0,
+    marky: 0, 
     // newmark 是指移动的最新点的x轴坐标 
     newmark: 0,
+    newmarky: 0,
     istoright: true,
     //返回按钮
     text_back: "< 返回",
@@ -28,12 +30,23 @@ Page({
     getSearch: [],
     modalHidden: true,
     //目录
-    menu: ['校园概况', '报道流程', '缴费', '常见问题', '常用网站', '时间表', '关于军训', '关于快递', 'diet', 'dormitory'],
+    menu: ['schoolintroduction', 'process', 'fee1','fee2','fee3', 'faq', 'website', 'timetable', 'militarytraining', 'expressdelivery', 'diet', 'dormitory'],
+    chinesemenu: ['校园概览','报道流程','学费缴纳','网费缴纳','一卡通充值','常见问题','常用网站','时间表','关于军训','关于快递','校内餐饮','宿舍介绍'],
+    chinesename : '',
   },
 
 
   /**********************   文件转换部分js start  ***********************/
   onLoad: function(options) {
+    //获取中文名
+    for(var i=0;i<this.data.menu.length;i++){
+      if(this.data.menu[i] == options.name+''){
+        this.setData({
+          chinesename : this.data.chinesemenu[i]
+        })
+      }
+    }
+  
     this.setData({
       name: options.name
     })
@@ -45,16 +58,20 @@ Page({
 
     //获取真实地址
     //目前不需要
+    var that = this
     wx.cloud.getTempFileURL({
-      fileList: ['cloud://scnu-dev-iyplf.7363-scnu-dev-iyplf/关于军训.md'],
+      fileList: ['cloud://scnu-dev-iyplf.7363-scnu-dev-iyplf-1259750702/' + options.name +'.md'],
       success: res => {
-        console.log(res.fileList),
-          this.data.realurl = res.fileList[0].tempFileURL
-        console.log(this.data.realurl)
+        //console.log(res.fileList[0].tempFileURL)
+        // that.setData({
+        //   realurl: res.fileList
+        // })
+        console.log(res.fileList)
       },
       fail: err => {}
     })
 
+    console.log(that.data.realurl)
 
     //判断是否第一次进入
     //若为第一次进入，则便利所有文件，把获取的数据都放入本地缓存
@@ -65,8 +82,8 @@ Page({
 
     //由于加载需要时间，需要在此写一个loading加载
 
-
-    app.getText(app.docDir + this.data.name + '.md', (res) => {
+var that = this;
+    app.getText(app.docDir + options.name + '.md' , (res) => {
       if (res.data) {
         //将markdown内容转换为towxml数据
         let articleData = app.towxml.toJson(res.data, 'markdown');
@@ -90,16 +107,16 @@ Page({
 
       };
       //先将文本提取到json
-      for (var i = 0; i < this.data.article001.child.length; i++) {
-        if ((this.data.article001.child[i]._e.nodeName == "p") && (this.data.article001.child[i].node == "element")) {
-          if (this.data.article001.child[i].child[0].text) {
-            this.setData({
-              articlejson: this.data.articlejson + this.data.article001.child[i].child[0].text
-            })
-          }
+      // for (var i = 0; i < this.data.article001.child.length; i++) {
+      //   if ((this.data.article001.child[i]._e.nodeName == "p") && (this.data.article001.child[i].node == "element")) {
+      //     if (this.data.article001.child[i].child[0].text) {
+      //       this.setData({
+      //         articlejson: this.data.articlejson + this.data.article001.child[i].child[0].text
+      //       })
+      //     }
 
-        }
-      }
+      //   }
+      // }
       // console.log(this.data.articlejson)
 
     });
@@ -107,16 +124,16 @@ Page({
     // }
     /**********************   文件转换部分js end  ***********************/
     //将转换出的json数据本地缓存
-    wx.setStorage({
-      key: "article001",
-      data: this.data.articlejson,
-      success: function() {
-        console.log('写入json成功');
-      },
-      fail: function() {
-        console.log('写入json发生错误')
-      }
-    })
+    // wx.setStorage({
+    //   key: "article001",
+    //   data: this.data.articlejson,
+    //   success: function() {
+    //     console.log('写入json成功');
+    //   },
+    //   fail: function() {
+    //     console.log('写入json发生错误')
+    //   }
+    // })
 
     //加载到首页
     // app.getText(app.docDir + options.name + '.md', (res) => {
@@ -224,16 +241,18 @@ Page({
     // touchstart事件
     // 把手指触摸屏幕的那一个点的 x 轴坐标赋值给 mark 和 newmark
     this.data.mark = this.data.newmark = e.touches[0].pageX;
+    this.data.marky = this.data.newmarky = e.touches[0].pageY;
   },
 
   tap_drag: function(e) {
     // touchmove事件
     this.data.newmark = e.touches[0].pageX;
-
+    this.data.newmarky = e.touches[0].pageY;
+console.log(this.data.mark-this.data.newmark)
     // 手指从左向右移动
-    if (this.data.mark < this.data.newmark) {
-      this.istoright = true;
-    }
+    // if ((this.data.mark < this.data.newmark-0.3) && Math.abs(this.data.marky- this.data.newmarky)<0.8 ) {
+    //   this.istoright = true;
+    // }
 
     // 手指从右向左移动
     if (this.data.mark > this.data.newmark) {
@@ -261,14 +280,14 @@ Page({
   /**********************   侧拉栏部分js end  ***********************/
 
   jump_to_last: function(e) {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < this.data.menu.length; i++) {
       if (this.data.name + '' == this.data.menu[i]) {
         if (i == 0) {
-          wx.navigateTo({
-            url: '/pages/test/index?name=' + this.data.menu[9],
+          wx.redirectTo({
+            url: '/pages/test/index?name=' + this.data.menu[this.data.menu.length - 1],
           });
         } else {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/test/index?name=' + this.data.menu[i - 1],
           });
         }
@@ -276,14 +295,14 @@ Page({
     }
   },
   jump_to_next: function(e) {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < this.data.menu.length; i++) {
       if (this.data.name + '' == this.data.menu[i]) {
-        if (i == 9) {
-          wx.navigateTo({
-            url: '/pages/test/index?name=' + this.data.menu[1],
+        if (i == this.data.menu.length - 1) {
+          wx.redirectTo({
+            url: '/pages/test/index?name=' + this.data.menu[0],
           });
         } else {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/test/index?name=' + this.data.menu[i + 1],
           });
         }
@@ -291,9 +310,17 @@ Page({
     }
   },
   //点击【返回】按钮触发
-  onClick_toBack: function () {
+  onClick_toBack: function() {
     wx.navigateBack({
-      
+
     });
+  },
+  //禁止下拉
+  onPageScroll: function (e) {
+    if (e.scrollTop < 0) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    }
   },
 })

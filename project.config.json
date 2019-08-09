@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -81,7 +81,7 @@
 					"id": 5,
 					"name": "test",
 					"pathName": "pages/test/index",
-					"query": "name=校园概况",
+					"query": "name=schoolintroduction",
 					"scene": null
 				},
 				{
