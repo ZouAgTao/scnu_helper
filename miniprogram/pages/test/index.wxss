@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 /* page {
   background-color: #000;
 } */
@@ -7,54 +8,67 @@
 @import '/towxml/style/main.wxss';
 @import '../travel/index.wxss';
 
-.text{
+.text {
   background: #fff;
   text-align: 100rpx;
   position: relative;
-  top: 340rpx;
+  top: 840rpx;
   /* left: 50rpx; */
 }
 
-.index{
+.index {
   position: fixed;
-  bottom: 100rpx;
-  left: 80rpx;
-  background-color: #1890FF;
-  border-radius: 40rpx;
-  height: 70rpx;
-  width: 600rpx;
+  bottom: 0rpx;
+  /* left: 80rpx; */
+  background-color: #1890ff;
+  /* border-radius: 40rpx; */
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+  z-index: 99;
 }
+/* .white{
+  background-color: #fff;
+  z-index: 88;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: -500rpx;
+} */
 
-.index_text{
+.index_text {
   position: fixed;
   color: #fff;
-  padding-top: 8rpx;
+  padding-top: 12rpx;
   width: 150rpx;
 }
 
-.pretitle{
+.pretitle {
   position: fixed;
   top: 200rpx;
   left: 120rpx;
   font-size: 30rpx;
   color: #595959;
 }
-.card{
+
+.card {
   position: fixed;
   top: 250rpx;
   left: 60rpx;
-  background-color: #1890FF;
+  background-color: #1890ff;
   width: 20rpx;
   height: 60rpx;
 }
-.title{
+
+.title {
   position: fixed;
   top: 245rpx;
   left: 100rpx;
   font-size: 50rpx;
   color: black;
 }
-.search{
+
+.search {
   position: fixed;
   width: 80%;
   top: 170rpx;
@@ -63,7 +77,8 @@
   background-color: #f5f5f5;
   border-radius: 20rpx;
 }
-.search_button{
+
+.search_button {
   position: fixed;
   top: 160rpx;
   width: 100rpx;
@@ -71,63 +86,121 @@
   height: 100rpx;
   font-size: 30rpx;
 }
-.search_text{
+
+.search_text {
   font-size: 30rpx;
   padding-top: 10rpx;
   padding-left: 70rpx;
   color: #8c8c8c;
 }
-.icon{
-  height: 40rpx;
-  width: 40rpx;
+
+.icon {
+  height: 35rpx;
+  width: 35rpx;
   position: relative;
-  top: -50rpx;
-  left: 20rpx;
+  top: 12rpx;
+  /* left: 20rpx; */
+}
+
+.display {
+  display: block;
 }
 
 /* ******************** 侧拉栏 start ******************** */
+
 .page-slidebar {
-    height: 500rpx;
-    width: 750rpx;
-    position: fixed;
-    background-color:white;
-    z-index: 0;
+  height: 500rpx;
+  width: 750rpx;
+  position: fixed;
+  background-color: white;
+  z-index: 0;
 }
+
 .page-content {
-    padding-top: 60rpx;
+  padding-top: 60rpx;
 }
+
 .wc {
-    color:black;
-    padding: 30rpx 0 30rpx 150rpx;
-    border-bottom: 1px solid #eee; 
-    width: 300rpx;
+  color: black;
+  padding: 30rpx 0 30rpx 150rpx;
+  border-bottom: 1px solid #eee;
+  width: 300rpx;
 }
 
 /* 当屏幕向左滑动，出现侧边栏的时候，主页的动画样式 */
+
 /* scale：取值范围 0~1 ，表示屏幕大小是原来的百分之几，可以自己修改成 0.8 试下*/
+
 /* translate(60%,0%) 表示向左滑动的时候，侧边栏占用平时的宽度为 60%   */
+
 .c-state {
-    transform: rotate(0deg) scale(1) translate(60%, 0%);
-    -webkit-transform: rotate(0deg) scale(1) translate(60%, 0%);
+  transform: rotate(0deg) scale(1) translate(60%, 0%);
+  -webkit-transform: rotate(0deg) scale(1) translate(60%, 0%);
 }
 
 .page-top {
-    height: 100%;
-    position: relative;
-    width: 750rpx;
-    background-color:white;
-    z-index: 0;
-    transition: All 0.4s ease;
-    -webkit-transition: All 0.4s ease;
+  height: 150%;
+  top: -500rpx;
+  position: relative;
+  width: 750rpx;
+  background-color: white;
+  z-index: 0;
+  transition: All 0.4s ease;
+  -webkit-transition: All 0.4s ease;
 }
 
 /* 遮盖层样式 */
-.cover{
-    width: 100%;
-    height: 100%;
-    background-color:gray;
-    opacity: 0.5;
-    z-index: 9000;
-}
+
+/* .cover {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  opacity: 0.5;
+  z-index: 9000;
+} */
 
 /* ******************** 侧拉栏 end ******************** */
+
+/* ******************** 底部栏 start ******************** */
+
+.bottom_box {
+  border-top: 1rpx solid #e8e8e8;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.bottom_text1 {
+  color: gray;
+  font-family: PingFangSC-bold;
+  font-size: 28rpx;
+  text-align: center;
+  padding-bottom: 10rpx;
+}
+.bottom_text2{
+  color: #000;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: PingFangSC-bold;
+  padding-bottom: 8rpx;
+}
+.bottom_text3{
+  font-size: 28rpx;
+  font-weight: 100rpx;
+  padding-left: 20rpx;
+  font-family: PingFangSC-bold;
+  padding-bottom: 8rpx;
+}
+.control-tab{
+  left: 65rpx;
+  bottom: 28rpx;
+  width: 620rpx;
+  height: 76rpx;
+  line-height: 80rpx;
+  border-radius: 42rpx;
+  background-color: rgba(24,144,255,1);
+  text-align: center;
+  box-shadow: 0px 0px 7px 0px rgba(24,144,255,1);
+  position: fixed;
+  justify-content: space-between;
+}
+/* ******************** 底部栏 end ******************** */
