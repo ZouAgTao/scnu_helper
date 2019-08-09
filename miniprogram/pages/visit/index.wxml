@@ -6,8 +6,10 @@
 </cover-view>
 <view class="outer">
   <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="17" class="block_map" markers="{{markers}}" skew="40" enable-overlooking enable-3D show-location="{{showlocable}}" rotate="45" enable-satellite="{{satellitable}}"  bindmarkertap="onClick_TapMarker" bindcallouttap="onClick_TapCallout">
-    <cover-image class="btn_change_mapmode" src="/img/switch.png" bindtap="onClick_ChangeMode"></cover-image>
-    <cover-image class="btn_getlocation" src="/img/location.png" bindtap="onClick_GetLocation"></cover-image>
+    <cover-view class="map_btn_group">
+      <cover-image class="btn_change_mapmode" src="/img/switch.png" bindtap="onClick_ChangeMode"></cover-image>
+      <cover-image class="btn_getlocation" src="/img/location.png" bindtap="onClick_GetLocation"></cover-image>
+    </cover-view>
   </map>
   <view class="block_function" style="height:{{autoHeight}}rpx;top:{{topHeight}}rpx;">
     <cover-view class="circle_bar"></cover-view>
@@ -62,7 +64,7 @@
           <view wx:else>
             <image class="card_bar_cursor" src="/img/cursor.png"></image>
           </view>
-          <view class="card_bar_icon"></view>
+          <!-- <view class="card_bar_icon"></view> -->
           <view class="card_bar_title_group">
             <text class="card_bar_title_group_title">{{item.title}}</text>
             <view class="card_bar_title_group_line"></view>

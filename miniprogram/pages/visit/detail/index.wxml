@@ -13,6 +13,7 @@
       <swiper indicator-dots autoplay interval="2000" circular class="area_images">
         <block wx:for="{{site_data.info.icons}}" wx:key="{{index}}">
           <swiper-item class="logo">
+            <image class="logo_image" src="{{item}}" mode="aspectFit"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -23,7 +24,9 @@
           <text class="btn_text">到这去</text>
         </view>
       </view>
-      <text class="area_text">{{site_data.info.text}}</text>
+      <scroll-view scroll-y class="scroll_text">
+        <text class="area_text">{{site_data.info.text}}</text>
+      </scroll-view>
     </view>
   </scroll-view>
 </view>

@@ -46,20 +46,30 @@
   font-weight: bold;
 }
 
+.map_btn_group
+{
+  width: 100%;
+  height: 60rpx;
+  margin-top: 560rpx;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .btn_change_mapmode
 {
   width: 60rpx;
   height: 60rpx;
   margin-left: 26rpx;
-  margin-top: 500rpx;
 }
 
 .btn_getlocation
 {
   width: 60rpx;
   height: 60rpx;
-  margin-left: 26rpx;
-  margin-top: 12rpx;
+  margin-right: 26rpx;
 }
 
 .block_map

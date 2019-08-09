@@ -98,10 +98,18 @@
   align-items: center;
 }
 
+.scroll_text
+{
+  width: 572rpx;
+  height:540rpx;
+  margin-top: 34rpx;
+}
+
 .area_text
 {
-  margin-top: 34rpx;
-  width: 572rpx;
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
 }
 
 .title
@@ -141,4 +149,10 @@
   font-size: 28rpx;
   font-family: PingFangSC-bold;
   font-weight: bold;
+}
+
+.logo_image
+{
+  width: 100%;
+  height: 100%;
 }

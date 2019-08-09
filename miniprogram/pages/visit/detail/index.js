@@ -3,7 +3,7 @@ Page({
   data: {
     site_data:{},
     text_back: "< 返回",
-    card_height:1700
+    card_height:1154
   },
 
   onLoad: function (options)

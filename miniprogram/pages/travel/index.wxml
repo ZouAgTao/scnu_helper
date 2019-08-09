@@ -5,7 +5,7 @@
   </cover-view>
 </cover-view>
 <view class="outer">
-  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" class="block_map" markers="{{markers}}" show-location="{{showlocable}}">
+  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale_size}}" class="block_map" markers="{{markers}}" include-points="{{include_points}}" show-location="{{showlocable}}">
     <cover-image class="btn_getlocation" src="/img/location.png" bindtap="onClick_GetLocation"></cover-image>
   </map>
   <view class="block_function" style="height:{{autoHeight}}rpx;top:{{topHeight}}rpx;">
@@ -23,87 +23,89 @@
     </view>
     <scroll-view scroll-y class="block_content" style="height:{{autoHeight-118}}rpx;" scroll-into-view="{{now_siteitem}}" scroll-with-animation scroll-top="{{scroll_top}}">
       <block wx:if="{{now_tab==0}}">
-        从本地存储中读取显示
+        <view class="block_none_item" wx:if="{{collect_number==0}}">
+          <text class="text_none_item">暂时还没有添加的收藏哦</text>
+        </view>
+        <block wx:else>
+          <!-- 从本地存储中读取显示 -->
+          <block wx:for="{{site_data}}" wx:key="{{index}}">
+          <block wx:if="{{item.is_collected}}">
+            <view id="{{item.id}}" data-ids="{{index}}" class="card_around_site" bindtap="onClick_SiteBar">
+              <view class="card_around_site_up">
+                <text class="card_around_site_title">{{item.site_name}}</text>
+                <block wx:if="{{item.is_collected}}">
+                  <image data-ids="{{index}}" catchtap="onClick_UnCollect" class="card_around_site_star" src="/img/travel_btn_star_active.png"></image>
+                </block>
+                <block wx:else>
+                  <image data-ids="{{index}}" catchtap="onClick_Collect"  class="card_around_site_star" src="/img/travel_btn_star.png"></image>
+                </block>
+              </view>
+              <view class="card_around_site_down">
+                <image class="card_around_site_bus_icon" src="/img/travel_icon_line.png"></image>
+                <block wx:for="{{item.bus_lines}}" wx:key="{{index}}">
+                  <view class="card_around_site_bus_bar" style="{{item.color}}"><text class="bus_text">{{item.bus_name}}</text></view>
+                </block>
+              </view>
+            </view>
+            <view class="detail_block" wx:if="{{now_siteitem==item.id}}">
+              <view class="detail_block_title">
+                <text class="detail_block_title_text" style="margin-left: 66rpx;">车次</text>
+                <text class="detail_block_title_text" style="margin-right: 42rpx;">到达站点</text>
+              </view>
+              <block wx:for="{{item.bus_lines}}" wx:key="{{index}}">
+                <view class="detail_block_title">
+                  <text class="detail_block_content_text" style="margin-left: 50rpx;">{{item.bus_name}}</text>
+                  <text class="detail_block_content_text" style="margin-right: 24rpx;">{{item.end_name}}</text>
+                </view>
+                <view class="detail_block_content_line"></view>
+              </block>
+            </view>
+          </block>
+          </block>
+          <!-- END -->
+        </block>
       </block>
       <block wx:elif="{{now_tab==1}}">
-        <!-- 【狮山广场】 -->
-        <view id="shishanguangchang" class="card_around_site" bindtap="onClick_SiteBar">
+      <block wx:for="{{site_data}}" wx:key="{{index}}">
+        <view id="{{item.id}}" data-ids="{{index}}" class="card_around_site" bindtap="onClick_SiteBar">
           <view class="card_around_site_up">
-            <text class="card_around_site_title">狮山广场</text>
-            <image class="card_around_site_star" src="/img/travel_btn_star.png"></image>
+            <text class="card_around_site_title">{{item.site_name}}</text>
+            <block wx:if="{{item.is_collected}}">
+              <image data-ids="{{index}}" catchtap="onClick_UnCollect" class="card_around_site_star" src="/img/travel_btn_star_active.png"></image>
+            </block>
+            <block wx:else>
+              <image data-ids="{{index}}" catchtap="onClick_Collect"  class="card_around_site_star" src="/img/travel_btn_star.png"></image>
+            </block>
           </view>
           <view class="card_around_site_down">
             <image class="card_around_site_bus_icon" src="/img/travel_icon_line.png"></image>
-            <view class="card_around_site_bus_bar" style="{{bus_bar_color.k5}}"><text class="bus_text">K5</text></view>
-            <view class="card_around_site_bus_bar" style="{{bus_bar_color.nangao1}}"><text class="bus_text">南高01</text></view>
-            <view class="card_around_site_bus_bar" style="{{bus_bar_color.nangao2}}"><text class="bus_text">南高02</text></view>
+            <block wx:for="{{item.bus_lines}}" wx:key="{{index}}">
+              <view class="card_around_site_bus_bar" style="{{item.color}}"><text class="bus_text">{{item.bus_name}}</text></view>
+            </block>
           </view>
         </view>
-        <view class="detail_block" wx:if="{{now_siteitem=='shishanguangchang'}}">
+        <view class="detail_block" wx:if="{{now_siteitem==item.id}}">
           <view class="detail_block_title">
-            <text class="detail_block_title_text">车次</text>
-            <text class="detail_block_title_text">站点</text>
+            <text class="detail_block_title_text" style="margin-left: 66rpx;">车次</text>
+            <text class="detail_block_title_text" style="margin-right: 42rpx;">到达站点</text>
           </view>
-          <view class="detail_block_title">
-            <text class="detail_block_content_text">K5</text>
-            <text class="detail_block_content_text">狮山广场站</text>
-          </view>
-          <view class="detail_block_content_line"></view>
-          <view class="detail_block_title">
-            <text class="detail_block_content_text">南高01</text>
-            <text class="detail_block_content_text">狮山广场站</text>
-          </view>
-          <view class="detail_block_content_line"></view>
-          <view class="detail_block_title">
-            <text class="detail_block_content_text">南高02</text>
-            <text class="detail_block_content_text">狮山广场站</text>
-          </view>
-          <view class="detail_block_content_line"></view>
+          <block wx:for="{{item.bus_lines}}" wx:key="{{index}}">
+            <view class="detail_block_title">
+              <text class="detail_block_content_text" style="margin-left: 50rpx;">{{item.bus_name}}</text>
+              <text class="detail_block_content_text" style="margin-right: 24rpx;">{{item.end_name}}</text>
+            </view>
+            <view class="detail_block_content_line"></view>
+          </block>
         </view>
-        <!-- 【END】 -->
-        <!-- 【和信广场】 -->
-        <view id="hexinguangchang" class="card_around_site"  bindtap="onClick_SiteBar">
-          <view class="card_around_site_up">
-            <text class="card_around_site_title">和信广场</text>
-            <image class="card_around_site_star" src="/img/travel_btn_star.png"></image>
-          </view>
-          <view class="card_around_site_down">
-            <image class="card_around_site_bus_icon" src="/img/travel_icon_line.png"></image>
-            <view class="card_around_site_bus_bar" style="{{bus_bar_color.nangao1}}"><text class="bus_text">南高01</text></view>
-            <view class="card_around_site_bus_bar" style="{{bus_bar_color.nangao2}}"><text class="bus_text">南高02</text></view>
-            <view class="card_around_site_bus_bar" style="{{bus_bar_color.other}}"><text class="bus_text">26/快1</text></view>
-          </view>
-        </view>
-        <view class="detail_block" wx:if="{{now_siteitem=='hexinguangchang'}}">
-          <view class="detail_block_title">
-            <text class="detail_block_title_text">车次</text>
-            <text class="detail_block_title_text">站点</text>
-          </view>
-          <view class="detail_block_title">
-            <text class="detail_block_content_text">南高01</text>
-            <text class="detail_block_content_text">狮山石门高级中学</text>
-          </view>
-          <view class="detail_block_content_line"></view>
-          <view class="detail_block_title">
-            <text class="detail_block_content_text">南高02</text>
-            <text class="detail_block_content_text">湖景湾</text>
-          </view>
-          <view class="detail_block_content_line"></view>
-          <view class="detail_block_title">
-            <text class="detail_block_content_text">26/快1</text>
-            <text class="detail_block_content_text">石门高级中学</text>
-          </view>
-          <view class="detail_block_content_line"></view>
-        </view>
-        <!-- 【END】 -->
       </block>
-      <view class="block_schoolbus" wx:else>
+      </block>
+      <block class="block_schoolbus" wx:else>
         <image class="card_img" src="/img/bustime_a.png"></image>
         <view class="btn_save_img" bindtap="onClick_SaveImage">
           <image class="btn_save_img_icon" src="/img/travel_btn_saveimg.png"></image>
           <text class="btn_save_img_text">保存图片</text>
         </view>
-      </view>
+      </block>
     </scroll-view>
   </view>
 </view>
