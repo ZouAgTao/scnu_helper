@@ -8,7 +8,8 @@
     "pages/test/index",
     "pages/menu/index",
     "pages/result/index",
-    "pages/travel/save_image/index"
+    "pages/travel/save_image/index",
+    "pages/about/index"
   ],
   "window": {
     "backgroundColor": "#D9D9D9",

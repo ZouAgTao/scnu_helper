@@ -6,6 +6,7 @@ const app = getApp();
 Page({
   data: {
     name: {},
+    zindex : 0,
     //文件转换变量
     isloading: true,
     article: {},
@@ -24,14 +25,16 @@ Page({
     istoright: true,
     //返回按钮
     text_back: "< 返回",
+    //分享按钮
+    text_share: "分享",
     //搜索变量
     selectHide: false,
     inputValue: '',
     getSearch: [],
     modalHidden: true,
     //目录
-    menu: ['schoolintroduction', 'process', 'fee1','fee2','fee3', 'faq', 'website', 'timetable', 'militarytraining', 'expressdelivery', 'diet', 'dormitory'],
-    chinesemenu: ['校园概览','报道流程','学费缴纳','网费缴纳','一卡通充值','常见问题','常用网站','时间表','关于军训','关于快递','校内餐饮','宿舍介绍'],
+    menu: ['schoolintroduction', 'process', 'fee1', 'fee2', 'fee3', 'dormitory', 'website', 'timetable', 'militarytraining', 'expressdelivery', 'diet', 'faq'],
+    chinesemenu: ['校园概览', '报道流程', '学费缴纳', '网费缴纳', '一卡通充值', '宿舍介绍', '常用网站', '时间表', '关于军训', '关于快递', '校内餐饮','常见问题'],
     chinesename : '',
   },
 
@@ -228,11 +231,13 @@ var that = this;
   tap_ch: function(e) {
     if (this.data.open) {
       this.setData({
-        open: false
+        open: false,
+        zindex : -1
       });
     } else {
       this.setData({
-        open: true
+        open: true,
+        zindex : 99,
       });
     }
   },
@@ -268,11 +273,13 @@ console.log(this.data.mark-this.data.newmark)
     // 通过改变 opne 的值，让主页加上滑动的样式
     if (this.istoright) {
       this.setData({
-        open: true
+        open: true,
+        zindex : 99,
       });
     } else {
       this.setData({
-        open: false
+        open: false,
+        zindex : 0
       });
     }
 
@@ -323,4 +330,10 @@ console.log(this.data.mark-this.data.newmark)
       })
     }
   },
+  //分享按钮
+  onClick_toShare: function(){
+    wx.navigateBack({
+
+    });
+  }
 })

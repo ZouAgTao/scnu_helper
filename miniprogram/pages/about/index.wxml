@@ -1,0 +1,40 @@
+<cover-view class="navigator" style="height:{{navHeight}}rpx;">
+  <cover-view style="height:{{statusBarHeight}}rpx"></cover-view>
+  <cover-view class="btn_nav_back" bindtap="onClick_toBack">
+    <cover-view class="btn_nav_back_text">{{text_back}}</cover-view>
+  </cover-view>
+</cover-view>
+<scroll-view scroll-y class="outer">
+  <view class="block_top">
+    <text class="top_title">关于我们</text>
+  </view>
+  <view class="block_content">
+    <text class="content_1">欢迎大家来到华南师范大学南海校区（南苑）！</text>
+    <text class="content_2">“SCNU南苑”是华南师范大学南海校区 <text style="color: #0048A2;">软件协会</text>，为同学们开发的新生导览小程序，提供新生攻略，校园导览，交通出行三个功能，涵盖了生活，学习，娱乐等诸多方面的实用信息，希望帮助新生解决入学困惑，尽快熟悉校园学习生活环境
+</text>
+    <view class="content_item">
+      <view class="point"></view>
+      <text class="content_3"><text style="font-weight: bold;">新生攻略</text>  聚焦新生入学最关切的几方面内容，汇总整理了包括缴费，宿舍，餐饮等多方面的介绍信息，希望能够帮助新生解答困惑</text>
+    </view>
+    <view class="content_item">
+      <view class="point"></view>
+      <text class="content_3"><text style="font-weight: bold;">交通出行</text>  提供了校区附近常去的地点信息以及公交线路，为同学提供出行指南。同时也提供了大家非常关心的校车时间表</text>
+    </view>
+    <view class="content_item">
+      <view class="point"></view>
+      <text class="content_3"><text style="font-weight: bold;">校园导览</text>  解决了传统地图校内地点信息不全的问题，希望能够帮助新生熟悉校园环境。同时在入学前也能一览校园风光</text>
+    </view>
+    <text class="content_4">我们希望能够通过汇聚校园生活的实用信息，为同学们带来便利和帮助。同时感谢校区<text style="color: #0048A2;">学生会信息宣传部</text>提供的校园风景美图，以及热心校友的资料整理。因为时间的原因我们小程序仍存在许多的不足，后续我们也会持续迭代完善。</text>
+    <!-- 底部块 -->
+    <view class="line"></view>
+    <text class="content_5" style="margin-left: 248rpx;margin-top: 22rpx;">信息错误？信息不全？</text>
+    <text class="content_5" style="margin-left: 236rpx;margin-top: 8rpx;">我们希望得到你的反馈！</text>
+    <text class="content_6">Contact us：  <text style="color: #0072FF;">ruanxie_scnu@163.com</text></text>
+    <text class="content_5" style="margin-left: 108rpx;margin-top: 42rpx;">（ 同时也欢迎加入我们合作编写完善内容 ）</text>
+    <text class="content_7">手册系列文章由软件协会整理编写
+校区图片由校学生会信息宣传部提供</text>
+    <text class="content_8">微信公众号：
+<text style="color: #0072FF;">Socoding</text></text>
+    <!-- 底部块 -->
+  </view>
+</scroll-view>

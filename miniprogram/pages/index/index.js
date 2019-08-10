@@ -43,9 +43,8 @@ Page({
   //点击【关于我们】触发
   onClick_aboutUs: function ()
   {
-    wx.showToast({
-      title: '关于我们',
-      mask:true
+    wx.navigateTo({
+      url: '/pages/about/index',
     });
   },
 

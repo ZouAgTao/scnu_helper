@@ -8,6 +8,14 @@
 @import '/towxml/style/main.wxss';
 @import '../travel/index.wxss';
 
+.share{
+  bottom:100rpx;
+  left:550rpx;
+  position:fixed;
+}
+.share_button{
+  width: 150rpx;
+}
 .text {
   background: #fff;
   text-align: 100rpx;
@@ -25,7 +33,7 @@
   height: 80rpx;
   width: 100%;
   text-align: center;
-  z-index: 99;
+  z-index: 2;
 }
 /* .white{
   background-color: #fff;
@@ -109,11 +117,11 @@
 /* ******************** 侧拉栏 start ******************** */
 
 .page-slidebar {
-  height: 500rpx;
-  width: 750rpx;
+  height: 100%;
+  /* width: 750rpx; */
   position: fixed;
   background-color: white;
-  z-index: 0;
+  z-index: 1;
 }
 
 .page-content {
@@ -125,6 +133,7 @@
   padding: 30rpx 0 30rpx 150rpx;
   border-bottom: 1px solid #eee;
   width: 300rpx;
+  background-color: #fff
 }
 
 /* 当屏幕向左滑动，出现侧边栏的时候，主页的动画样式 */
@@ -144,7 +153,7 @@
   position: relative;
   width: 750rpx;
   background-color: white;
-  z-index: 0;
+  z-index: 2;
   transition: All 0.4s ease;
   -webkit-transition: All 0.4s ease;
 }
@@ -167,6 +176,7 @@
   border-top: 1rpx solid #e8e8e8;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
+  z-index: 0;
 }
 
 .bottom_text1 {
