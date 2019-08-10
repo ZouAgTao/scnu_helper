@@ -290,7 +290,7 @@ var site_data = [
     "icon": "",
     "position": {
       "lng": 23.147320,
-      "lat": 113.027172
+      "lat": 113.029364
     },
     "info": {
       "imgable": false,

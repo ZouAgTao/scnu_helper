@@ -318,8 +318,8 @@ console.log(this.data.mark-this.data.newmark)
   },
   //点击【返回】按钮触发
   onClick_toBack: function() {
-    wx.navigateBack({
-
+    wx.navigateTo({
+      url: '/pages/index/index',
     });
   },
   //禁止下拉
