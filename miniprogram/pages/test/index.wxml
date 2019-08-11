@@ -65,9 +65,9 @@
       <view class="bottom_text3">手册系列文章由软件协会整理编写</view>
       <view class="bottom_text3">校区图片由校学生会信息宣传部提供</view>
       <view style="height:50rpx"></view>
-      <view class="bottom_text3">微信公众号：</view>
-      <view class="bottom_text3" style="color:blue">Socoding</view>
-      <view style="height:100rpx"></view>
+      <!-- <view class="bottom_text3">微信公众号：</view>
+      <view class="bottom_text3" style="color:blue">Socoding</view> -->
+      <view style="height:50rpx"></view>
     </view>
   </view>
 
