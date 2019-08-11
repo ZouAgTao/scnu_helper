@@ -33,8 +33,10 @@
     <text class="content_5" style="margin-left: 108rpx;margin-top: 42rpx;">（ 同时也欢迎加入我们合作编写完善内容 ）</text>
     <text class="content_7">手册系列文章由软件协会整理编写
 校区图片由校学生会信息宣传部提供</text>
-    <text class="content_8">微信公众号：
-<text style="color: #0072FF;">Socoding</text></text>
+    <!-- 不符合规范，注释删除 -->
+    <!-- <text class="content_8">微信公众号：
+<text style="color: #0072FF;">Socoding</text></text> -->
     <!-- 底部块 -->
+    <view class="content_9"></view>
   </view>
 </scroll-view>

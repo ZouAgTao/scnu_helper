@@ -190,9 +190,13 @@
 {
   margin-left: 38rpx;
   margin-top: 44rpx;
-  margin-bottom: 260rpx;
   color: rgba(71, 71, 77, 1);
   font-size: 28rpx;
   text-align: left;
   font-family: PingFangSC-regular;
+}
+
+.content_9
+{
+  margin-bottom: 260rpx;
 }

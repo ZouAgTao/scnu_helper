@@ -318,9 +318,25 @@ console.log(this.data.mark-this.data.newmark)
   },
   //点击【返回】按钮触发
   onClick_toBack: function() {
-    wx.navigateTo({
-      url: '/pages/index/index',
-    });
+    let pages = getCurrentPages();
+    let index_page = pages[0];
+    var index_route = index_page.route;
+
+    if (index_route == "pages/index/index")
+    {
+      wx.navigateBack({
+        delta: 99999
+      });
+    }
+    else
+    {
+      if(pages.length > 1)
+      {
+        wx.redirectTo({
+          url: '/pages/index/index',
+        })
+      }
+    }
   },
   //禁止下拉
   onPageScroll: function (e) {
