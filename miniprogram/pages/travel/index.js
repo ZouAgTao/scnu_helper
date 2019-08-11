@@ -334,11 +334,8 @@ Page({
         }
       ];
 
-      var scale_size = this.data.scale_size - 3;
-
       var center_longitude = (src_longitude + this.data.site_data[ids].position.lng)/2;
       var center_latitude = (src_latitude + this.data.site_data[ids].position.lat)/2;
-
 
       this.setData({
         now_siteitem: id,
@@ -348,9 +345,11 @@ Page({
         include_points: include_points
       });
 
-      this.setData({
-        scale_size: scale_size
-      });
+      // var scale_size = this.data.scale_size - 3;
+
+      // this.setData({
+      //   scale_size: scale_size
+      // });
     }
   },
 
