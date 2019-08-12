@@ -346,10 +346,10 @@ console.log(this.data.mark-this.data.newmark)
       })
     }
   },
-  //分享按钮
-  onClick_toShare: function(){
-    wx.navigateBack({
-
-    });
+  //跳转
+  onPageRedirect: function(e) {
+    wx.redirectTo({
+      url: 'index?name=' + e.currentTarget.dataset.name,
+    })
   }
 })

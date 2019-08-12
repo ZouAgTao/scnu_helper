@@ -15,19 +15,19 @@
 <view class="page-slidebar" style="z-index:{{zindex}};" >
   <scroll-view class="page-content" scroll-y="true" style="height:100%;">
     <view>
-      <navigator url='index?name=schoolintroduction' hover-class="navigator-hover" class="wc">校园概况</navigator>
-      <navigator url='index?name=process' hover-class="navigator-hover" class="wc">报道流程</navigator>
-      <navigator url='index?name=fee1' hover-class="navigator-hover" class="wc">学费缴纳</navigator>
-      <navigator url='index?name=fee2' hover-class="navigator-hover" class="wc">网费缴纳</navigator>
-      <navigator url='index?name=fee3' hover-class="navigator-hover" class="wc">一卡通充值</navigator>
-      <navigator url='index?name=dormitory' hover-class="navigator-hover" class="wc">宿舍介绍</navigator>
-      <navigator url='index?name=website' hover-class="navigator-hover" class="wc">常用网站</navigator>
-      <navigator url='index?name=timetable' hover-class="navigator-hover" class="wc">时间表</navigator>
-      <navigator url='index?name=militarytraining' hover-class="navigator-hover" class="wc">关于军训</navigator>
-      <navigator url='index?name=expressdelivery' hover-class="navigator-hover" class="wc">关于快递</navigator>
-      <navigator url='index?name=diet' hover-class="navigator-hover" class="wc">校内餐饮</navigator>
-      <navigator url='index?name=faq' hover-class="navigator-hover" class="wc">常见问题</navigator>
-      <navigator url='index?name=faq' hover-class="navigator-hover" class="wc" style="border-bottom:#fff;"></navigator>
+      <view data-name='schoolintroduction' bindtap="onPageRedirect" class="wc">校园概况</view>
+      <view data-name='process' bindtap="onPageRedirect" class="wc">报道流程</view>
+      <view data-name='fee1' bindtap="onPageRedirect" class="wc">学费缴纳</view>
+      <view data-name='fee2' bindtap="onPageRedirect" class="wc">网费缴纳</view>
+      <view data-name='fee3' bindtap="onPageRedirect" class="wc">一卡通充值</view>
+      <view data-name='dormitory' bindtap="onPageRedirect" class="wc">宿舍介绍</view>
+      <view data-name='website' bindtap="onPageRedirect" class="wc">常用网站</view>
+      <view data-name='timetable' bindtap="onPageRedirect" class="wc">时间表</view>
+      <view data-name='militarytraining' bindtap="onPageRedirect" class="wc">关于军训</view>
+      <view data-name='expressdelivery' bindtap="onPageRedirect" class="wc">关于快递</view>
+      <view data-name='diet' bindtap="onPageRedirect" class="wc">校内餐饮</view>
+      <view data-name='faq' bindtap="onPageRedirect" class="wc">常见问题</view>
+      <view data-name='faq' bindtap="onPageRedirect" class="wc" style="border-bottom:#fff;"></view>
     </view>
   </scroll-view>
 </view>
@@ -65,9 +65,9 @@
       <view class="bottom_text3">手册系列文章由软件协会整理编写</view>
       <view class="bottom_text3">校区图片由校学生会信息宣传部提供</view>
       <view style="height:50rpx"></view>
-      <!-- <view class="bottom_text3">微信公众号：</view>
-      <view class="bottom_text3" style="color:blue">Socoding</view> -->
-      <view style="height:50rpx"></view>
+      <view class="bottom_text3">微信公众号：</view>
+      <view class="bottom_text3" style="color:blue">Socoding</view>
+      <view style="height:100rpx"></view>
     </view>
   </view>
 
