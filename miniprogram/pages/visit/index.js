@@ -362,35 +362,60 @@ Page({
   {
     var index = e.currentTarget.dataset.index_id;
 
-    if (this.data.now_siteitem != e.currentTarget.id)
-    {
-      var markers = this.data.markers;
-      for (var i = 0; i < markers.length; i++) {
-        if (markers[i].id !== index) {
-          markers[i].callout = undefined;
-        }
-        else {
-          markers[i].callout = {
-            content: this.data.site_data[index].title + "  >>",
-            borderRadius: 6,
-            padding: 10,
-            borderWidth:5,
-            display: 'ALWAYS'
-          };
-        }
+    var markers = this.data.markers;
+    for (var i = 0; i < markers.length; i++) {
+      if (markers[i].id !== index) {
+        markers[i].callout = undefined;
       }
+      else {
+        markers[i].callout = {
+          content: this.data.site_data[index].title + "  >>",
+          borderRadius: 6,
+          padding: 10,
+          borderWidth: 5,
+          display: 'ALWAYS'
+        };
+      }
+    }
 
-      this.setData({
-        markers: markers,
-        now_siteitem: e.currentTarget.id,
-        latitude: this.data.site_data[index].position.lng,
-        longitude: this.data.site_data[index].position.lat
-      });
-    }
-    else
-    {
-      this.toDetailPage(e.currentTarget.dataset.index_id);
-    }
+    this.setData({
+      markers: markers,
+      now_siteitem: e.currentTarget.id,
+      latitude: this.data.site_data[index].position.lng,
+      longitude: this.data.site_data[index].position.lat
+    });
+
+    this.toDetailPage(e.currentTarget.dataset.index_id);
+
+    // if (this.data.now_siteitem != e.currentTarget.id)
+    // {
+    //   var markers = this.data.markers;
+    //   for (var i = 0; i < markers.length; i++) {
+    //     if (markers[i].id !== index) {
+    //       markers[i].callout = undefined;
+    //     }
+    //     else {
+    //       markers[i].callout = {
+    //         content: this.data.site_data[index].title + "  >>",
+    //         borderRadius: 6,
+    //         padding: 10,
+    //         borderWidth:5,
+    //         display: 'ALWAYS'
+    //       };
+    //     }
+    //   }
+
+    //   this.setData({
+    //     markers: markers,
+    //     now_siteitem: e.currentTarget.id,
+    //     latitude: this.data.site_data[index].position.lng,
+    //     longitude: this.data.site_data[index].position.lat
+    //   });
+    // }
+    // else
+    // {
+    //   this.toDetailPage(e.currentTarget.dataset.index_id);
+    // }
   },
 
   //点击Marker时触发
