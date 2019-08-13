@@ -351,5 +351,19 @@ console.log(this.data.mark-this.data.newmark)
     wx.redirectTo({
       url: 'index?name=' + e.currentTarget.dataset.name,
     })
+  },
+  //分享
+  onShareAppMessage: function () {
+
+    return {
+
+      title: this.data.chinesename,
+
+      // desc: '自定义分享描述',
+
+      path: 'pages/test/index?name=' + this.data.name,
+
+    }
+
   }
 })
