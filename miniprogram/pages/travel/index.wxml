@@ -57,8 +57,9 @@
                   <text class="detail_block_content_text" style="margin-left: 50rpx;">{{item.bus_name}}</text>
                   <text class="detail_block_content_text" style="margin-right: 24rpx;">{{item.end_name}}</text>
                 </view>
-                <view class="detail_block_content_line"></view>
+                <!-- <view class="detail_block_content_line"></view> -->
               </block>
+              <view style="margin-bottom: 40rpx;"></view>
             </view>
           </block>
           </block>
@@ -94,8 +95,9 @@
               <text class="detail_block_content_text" style="margin-left: 50rpx;">{{item.bus_name}}</text>
               <text class="detail_block_content_text" style="margin-right: 24rpx;">{{item.end_name}}</text>
             </view>
-            <view class="detail_block_content_line"></view>
+            <!-- <view class="detail_block_content_line"></view> -->
           </block>
+          <view style="margin-bottom: 40rpx;"></view>
         </view>
       </block>
       </block>

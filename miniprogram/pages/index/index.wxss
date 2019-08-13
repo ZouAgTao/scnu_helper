@@ -8,7 +8,7 @@
   justify-content: flex-start;
   align-items: center;
 
-  background-color: #809CB9;
+  background-color: #E7EEF7;
 }
 
 .block_title
@@ -28,7 +28,7 @@
   margin-top: 46rpx;
 
   font-size: 36rpx;
-  color: #FFFFFF;
+  color: #749CF4;
   font-weight: bold;
 
   font-family: PingFangSC-bold;
@@ -40,7 +40,7 @@
   margin-top: 16rpx;
 
   font-size: 56rpx;
-  color: #3F51B5;
+  color: #1D54A8;
   font-weight: bold;
 
   font-family: PingFangSC-bold;
@@ -64,9 +64,9 @@
   height: 304rpx;
   margin-bottom: 40rpx;
 
-  background-color: #DAE5F9;
+  background-color: #FFFFFF;
   border-radius: 20rpx 0rpx 0rpx 60rpx;
-  box-shadow: 0rpx 0rpx 6rpx 0rpx rgba(170, 170, 170, 1);
+  box-shadow: 0rpx 2rpx 6rpx 0rpx rgba(170, 170, 170, 1);
 
   display: flex;
   flex-direction: row;
@@ -87,7 +87,7 @@
 
 .content_title_title
 {
-  color: rgba(0, 114, 255, 1);
+  color: #48A1FD;
   font-size: 56rpx;
   font-weight: bold;
 
@@ -98,7 +98,7 @@
 {
   margin-top: 14rpx;
 
-  color: rgba(118, 166, 251, 1);
+  color: #A1A5AE;
   font-size: 36rpx;
   font-weight: bold;
 
