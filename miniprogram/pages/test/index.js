@@ -41,6 +41,15 @@ Page({
 
   /**********************   文件转换部分js start  ***********************/
   onLoad: function(options) {
+    //【此段修改有疑惑请联系Ag】回退到首页的动态逻辑
+    if (app.globalData.is_to_index)
+    {
+      app.globalData.is_to_index = false;
+      wx.redirectTo({
+        url: '/pages/index/index',
+      });
+    }
+
     //获取中文名
     for(var i=0;i<this.data.menu.length;i++){
       if(this.data.menu[i] == options.name+''){
@@ -330,11 +339,19 @@ console.log(this.data.mark-this.data.newmark)
     }
     else
     {
-      if(pages.length > 1)
+      if(pages.length == 1)
       {
         wx.redirectTo({
           url: '/pages/index/index',
-        })
+        });
+      }
+      else
+      {
+        app.globalData.is_to_index = true;
+
+        wx.navigateBack({
+          delta: 99999
+        });
       }
     }
   },

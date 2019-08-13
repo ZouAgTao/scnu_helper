@@ -2,7 +2,8 @@
 const Towxml = require('/towxml/main');
 App({
   globalData: {
-    navHeight: 0
+    navHeight: 0,
+    is_to_index:false
   },
   onLaunch: function ()
   {
