@@ -13,6 +13,7 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
@@ -20,8 +21,7 @@
 		},
 		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"compileHotReLoad": false
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wxf8b4e010b166bd12",
 	"projectname": "%E5%8D%8E%E5%B8%88%E5%8D%97%E8%8B%91",

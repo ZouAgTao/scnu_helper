@@ -218,11 +218,11 @@ Page({
       if (this.data.name + '' == this.data.menu[i]) {
         if (i == 0) {
           wx.redirectTo({
-            url: '/pages/test/index?name=' + this.data.menu[this.data.menu.length - 1],
+            url: '/pages/book/index?name=' + this.data.menu[this.data.menu.length - 1],
           });
         } else {
           wx.redirectTo({
-            url: '/pages/test/index?name=' + this.data.menu[i - 1],
+            url: '/pages/book/index?name=' + this.data.menu[i - 1],
           });
         }
       }
@@ -233,11 +233,11 @@ Page({
       if (this.data.name + '' == this.data.menu[i]) {
         if (i == this.data.menu.length - 1) {
           wx.redirectTo({
-            url: '/pages/test/index?name=' + this.data.menu[0],
+            url: '/pages/book/index?name=' + this.data.menu[0],
           });
         } else {
           wx.redirectTo({
-            url: '/pages/test/index?name=' + this.data.menu[i + 1],
+            url: '/pages/book/index?name=' + this.data.menu[i + 1],
           });
         }
       }
@@ -292,7 +292,7 @@ Page({
 
       // desc: '自定义分享描述',
 
-      path: 'pages/test/index?name=' + this.data.name,
+      path: 'pages/book/index?name=' + this.data.name,
 
     }
 
