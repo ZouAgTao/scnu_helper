@@ -1,10 +1,14 @@
 //index.js
 
+// const { config } = require("process");
+const menu = require('menu.js')
 const app = getApp();
 //const cloud = require('wx-server-sdk')
 
 Page({
   data: {
+    name: {},
+    zindex: 0,
     //文件转换变量
     isloading: true,
     article: {},
@@ -16,24 +20,58 @@ Page({
     open: false,
     // mark 是指原点x轴坐标
     mark: 0,
+    marky: 0,
     // newmark 是指移动的最新点的x轴坐标 
     newmark: 0,
+    newmarky: 0,
     istoright: true,
     //返回按钮
     text_back: "< 返回",
+    //分享按钮
+    text_share: "分享",
     //搜索变量
     selectHide: false,
     inputValue: '',
     getSearch: [],
     modalHidden: true,
-    //目录
-    menu: ['校园概况', '报道流程', '缴费', '常见问题', '常用网站', '时间表', '关于军训', '关于快递'],
+    chinesename: '',
+    isIPX: app.globalData.isIPX,
   },
 
 
   /**********************   文件转换部分js start  ***********************/
   onLoad: function (options) {
-    const _ts = this;
+    let that = this
+
+    wx.showToast({title: '加载中', icon: 'loading', duration: 10000});
+
+// 使用案例
+
+    this.setData({
+      menu: menu.menu,
+      chinesemenu: menu.chinesemenu
+    })
+
+    //【此段修改有疑惑请联系Ag】回退到首页的动态逻辑
+    if (app.globalData.is_to_index) {
+      app.globalData.is_to_index = false;
+      wx.redirectTo({
+        url: '/pages/index/index',
+      });
+    }
+
+    //获取中文名
+    for (var i = 0; i < this.data.menu.length; i++) {
+      if (this.data.menu[i] == options.name + '') {
+        this.setData({
+          chinesename: this.data.chinesemenu[i]
+        })
+      }
+    }
+
+    this.setData({
+      name: options.name
+    })
 
     //获取数据库的FileID
     //页面跳转
@@ -41,17 +79,15 @@ Page({
 
     //获取真实地址
     //目前不需要
-    // wx.cloud.getTempFileURL({
-    //   fileList: ['cloud://scnu-dev-iyplf.7363-scnu-dev-iyplf/logo.png'],
-    //   success: res => {
-    //     console.log(res.fileList),
-    //       this.data.realurl = res.fileList[0].tempFileURL
-    //     console.log(this.data.realurl)
-    //   },
-    //   fail: err => {
-    //   }
-    // })
+    wx.cloud.getTempFileURL({
+      fileList: ['cloud://scnu-dev-iyplf.7363-scnu-dev-iyplf-1259750702/' + options.name + '.md'],
+      success: res => {
+        console.log(res.fileList)
+      },
+      fail: err => { }
+    })
 
+    console.log(that.data.realurl)
 
     //判断是否第一次进入
     //若为第一次进入，则便利所有文件，把获取的数据都放入本地缓存
@@ -70,103 +106,17 @@ Page({
         this.setData({
           article001: articleData,
         })
-        // console.log('articleData', articleData);
-        // articleData = app.towxml.initData(articleData, {
-        //   base: 'https://7363-scnu-dev-iyplf-1259750702.tcb.qcloud.la/',
-        //   app: _ts
-        // })
-        // articleData.theme = 'light';
 
 
         //设置文章数据，并清除页面loading
         //加载
-        _ts.setData({
+        that.setData({
           article: articleData,
-          isloading: false
         });
-
+        wx.hideToast();
       };
-      //先将文本提取到json
-      for (var i = 0; i < this.data.article001.child.length; i++) {
-        if ((this.data.article001.child[i]._e.nodeName == "p") && (this.data.article001.child[i].node == "element")) {
-          if (this.data.article001.child[i].child[0].text) {
-            this.setData({
-              articlejson: this.data.articlejson + this.data.article001.child[i].child[0].text
-            })
-          }
-
-        }
-      }
-      // console.log(this.data.articlejson)
 
     });
-
-    // }
-    /**********************   文件转换部分js end  ***********************/
-    //将转换出的json数据本地缓存
-    wx.setStorage({
-      key: "article001",
-      data: this.data.articlejson,
-      success: function () {
-        console.log('写入json成功');
-      },
-      fail: function () {
-        console.log('写入json发生错误')
-      }
-    })
-
-    //加载到首页
-    // app.getText(app.docDir + options.name + '.md', (res) => {
-    //   if (res.data) {
-    //     //将markdown内容转换为towxml数据
-    //     let articleData = app.towxml.toJson(res.data, 'markdown');
-    //     this.setData({
-    //       article001: articleData,
-    //     })
-    //     console.log('articleData', articleData);
-    //     articleData = app.towxml.initData(articleData, {
-    //       base: 'https://7363-scnu-dev-iyplf-1259750702.tcb.qcloud.la/',
-    //       app: _ts
-    //     })
-    //     articleData.theme = 'light';
-
-
-    //     //设置文章数据，并清除页面loading
-    //     //加载
-    //     _ts.setData({
-    //       article: articleData,
-    //       isloading: false
-    //     });
-    //   };
-    // });
-
-    // } else {
-    //   //直接加载首页
-
-    //   app.getText(app.docDir +  +options.name + '.md', (res) => {
-    //     if (res.data) {
-    //       //将markdown内容转换为towxml数据
-    //       let articleData = app.towxml.toJson(res.data, 'markdown');
-    //       this.setData({
-    //         article001: articleData,
-    //       })
-    //       console.log('articleData', articleData);
-    //       articleData = app.towxml.initData(articleData, {
-    //         base: 'https://7363-scnu-dev-iyplf-1259750702.tcb.qcloud.la/',
-    //         app: _ts
-    //       })
-    //       articleData.theme = 'light';
-
-
-    //       //设置文章数据，并清除页面loading
-    //       //加载
-    //       _ts.setData({
-    //         article: articleData,
-    //         isloading: false
-    //       });
-    //     };
-    //   });
-    // }
 
   },
   /**********************   搜索框部分js start  ***********************/
@@ -208,11 +158,13 @@ Page({
   tap_ch: function (e) {
     if (this.data.open) {
       this.setData({
-        open: false
+        open: false,
+        zindex: -1
       });
     } else {
       this.setData({
-        open: true
+        open: true,
+        zindex: 99,
       });
     }
   },
@@ -221,16 +173,18 @@ Page({
     // touchstart事件
     // 把手指触摸屏幕的那一个点的 x 轴坐标赋值给 mark 和 newmark
     this.data.mark = this.data.newmark = e.touches[0].pageX;
+    this.data.marky = this.data.newmarky = e.touches[0].pageY;
   },
 
   tap_drag: function (e) {
     // touchmove事件
     this.data.newmark = e.touches[0].pageX;
-
+    this.data.newmarky = e.touches[0].pageY;
+    console.log(this.data.mark - this.data.newmark)
     // 手指从左向右移动
-    if (this.data.mark < this.data.newmark) {
-      this.istoright = true;
-    }
+    // if ((this.data.mark < this.data.newmark-0.3) && Math.abs(this.data.marky- this.data.newmarky)<0.8 ) {
+    //   this.istoright = true;
+    // }
 
     // 手指从右向左移动
     if (this.data.mark > this.data.newmark) {
@@ -246,17 +200,101 @@ Page({
     // 通过改变 opne 的值，让主页加上滑动的样式
     if (this.istoright) {
       this.setData({
-        open: true
+        open: true,
+        zindex: 99,
       });
     } else {
       this.setData({
-        open: false
+        open: false,
+        zindex: 0
       });
     }
 
   },
   /**********************   侧拉栏部分js end  ***********************/
 
+  jump_to_last: function (e) {
+    for (var i = 0; i < this.data.menu.length; i++) {
+      if (this.data.name + '' == this.data.menu[i]) {
+        if (i == 0) {
+          wx.redirectTo({
+            url: '/pages/test/index?name=' + this.data.menu[this.data.menu.length - 1],
+          });
+        } else {
+          wx.redirectTo({
+            url: '/pages/test/index?name=' + this.data.menu[i - 1],
+          });
+        }
+      }
+    }
+  },
+  jump_to_next: function (e) {
+    for (var i = 0; i < this.data.menu.length; i++) {
+      if (this.data.name + '' == this.data.menu[i]) {
+        if (i == this.data.menu.length - 1) {
+          wx.redirectTo({
+            url: '/pages/test/index?name=' + this.data.menu[0],
+          });
+        } else {
+          wx.redirectTo({
+            url: '/pages/test/index?name=' + this.data.menu[i + 1],
+          });
+        }
+      }
+    }
+  },
+  //点击【返回】按钮触发
+  onClick_toBack: function () {
+    let pages = getCurrentPages();
+    let index_page = pages[0];
+    var index_route = index_page.route;
 
+    if (index_route == "pages/index/index") {
+      wx.navigateBack({
+        delta: 99999
+      });
+    }
+    else {
+      if (pages.length == 1) {
+        wx.redirectTo({
+          url: '/pages/index/index',
+        });
+      }
+      else {
+        app.globalData.is_to_index = true;
 
+        wx.navigateBack({
+          delta: 99999
+        });
+      }
+    }
+  },
+  //禁止下拉
+  onPageScroll: function (e) {
+    if (e.scrollTop < 0) {
+      wx.pageScrollTo({
+        scrollTop: 0
+      })
+    }
+  },
+  //跳转
+  onPageRedirect: function (e) {
+    wx.redirectTo({
+      url: 'index?name=' + e.currentTarget.dataset.name,
+    })
+  },
+  //分享
+  onShareAppMessage: function () {
+
+    return {
+
+      title: this.data.chinesename,
+
+      // desc: '自定义分享描述',
+
+      path: 'pages/test/index?name=' + this.data.name,
+
+    }
+
+  }
 })

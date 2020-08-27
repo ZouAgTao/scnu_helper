@@ -52,7 +52,7 @@ Page({
   onClick_toPageBook: function ()
   {
     wx.navigateTo({
-      url: '/pages/test/index?name=schoolintroduction',
+      url: '/pages/book/index?name=schoolintroduction',
     });
   },
   

@@ -1,38 +1,35 @@
 <!--index.wxml-->
 
 <!-- 返回按钮 -->
-
+<cover-view class="navigator" style="height:{{navHeight}}rpx;top:50rpx;display:{{open?'none':'block'}};position:fixed;">
+  <cover-view style="height:{{statusBarHeight}}rpx"></cover-view>
+  <cover-view class="btn_nav_back" bindtap="onClick_toBack">
+    <cover-view class="btn_nav_back_text">{{text_back}}</cover-view>
+  </cover-view>
+</cover-view>
 
 <!-- ********************************************************************** -->
 
 <!-- 侧拉栏 start-->
-<view class="page-slidebar">
-  <view class="page-content">
-    <view class="wc">
-      <navigator url='index?name=校园概况' hover-class="navigator-hover">校园概况</navigator>
+
+<view class="page-slidebar" style="z-index:{{zindex}};" >
+  <scroll-view class="page-content" scroll-y="true" style="height:100%;">
+    <view>
+      <view data-name='schoolintroduction' bindtap="onPageRedirect" class="wc">校园概况</view>
+      <view data-name='process' bindtap="onPageRedirect" class="wc">报道流程</view>
+      <view data-name='fee1' bindtap="onPageRedirect" class="wc">学费缴纳</view>
+      <view data-name='fee2' bindtap="onPageRedirect" class="wc">网费缴纳</view>
+      <view data-name='fee3' bindtap="onPageRedirect" class="wc">一卡通充值</view>
+      <view data-name='dormitory' bindtap="onPageRedirect" class="wc">宿舍介绍</view>
+      <view data-name='website' bindtap="onPageRedirect" class="wc">常用网站</view>
+      <view data-name='timetable' bindtap="onPageRedirect" class="wc">时间表</view>
+      <view data-name='militarytraining' bindtap="onPageRedirect" class="wc">关于军训</view>
+      <view data-name='expressdelivery' bindtap="onPageRedirect" class="wc">关于快递</view>
+      <view data-name='diet' bindtap="onPageRedirect" class="wc">校内餐饮</view>
+      <view data-name='faq' bindtap="onPageRedirect" class="wc">常见问题</view>
+      <view data-name='faq' bindtap="onPageRedirect" class="wc" style="border-bottom:#fff;"></view>
     </view>
-    <view class="wc">
-      <navigator url='index?name=报道流程' hover-class="navigator-hover">报道流程</navigator>
-    </view>
-    <view class="wc">
-      <navigator url='index?name=缴费' hover-class="navigator-hover">缴费</navigator>
-    </view>
-    <view class="wc">
-      <navigator url='index?name=常见问题' hover-class="navigator-hover">常见问题</navigator>
-    </view>
-    <view class="wc">
-      <navigator url='index?name=常用网站' hover-class="navigator-hover">常用网站</navigator>
-    </view>
-    <view class="wc">
-      <navigator url='index?name=时间表' hover-class="navigator-hover">时间表</navigator>
-    </view>
-    <view class="wc">
-      <navigator url='index?name=关于军训' hover-class="navigator-hover">关于军训</navigator>
-    </view>
-    <view class="wc">
-      <navigator url='index?name=关于快递' hover-class="navigator-hover">关于快递</navigator>
-    </view>
-  </view>
+  </scroll-view>
 </view>
 
 <!-- 侧拉栏 end-->
@@ -41,26 +38,40 @@
 
 <!-- markdown显示区 start -->
 
-<view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? ['c-state','cover'] : ''}} ">
+<view class="page-top {{open ? ['c-state','cover'] : ''}} " bindtouchmove="onPageScroll" bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="position:{{!open?'relative':'fixed'}}">
+
+
 
   <!-- 开头 -->
-  <!-- 未完成，由于暂时没有目录信息固设置为静态 -->
   <view class='card'></view>
-  <view class='pretitle'>入学必备</view>
-  <view class='title'>行前准备</view>
+  <!-- <view class='pretitle'>入学必备</view> -->
+  <text class='title' selectable="true">{{chinesename}}</text>
 
 
   <!--使用towxml-->
 
-    <scroll-view class="text">
-      <import src="/towxml/entry.wxml" />
-      <template is="entry" data="{{...article}}" />
-    </scroll-view>
-
-  <!-- menu tab -->
-  <view class='index'>
-    <view class='index_text' style='left:230rpx;' bindtap='tap_ch'>☰目录</view>
+  <view class="text">
+    <import src="/towxml/entry.wxml" />
+    <template is="entry" data="{{...article}}" />
+    <view class="bottom_box">
+      <view class="bottom_text1">信息错误？信息不全？</view>
+      <view class="bottom_text1"> 我们希望得到你的反馈！</view>
+      <view class="bottom_text2">Contact us
+        <text style="color:blue">ruanxie_scnu@163.com</text>
+      </view>
+      <view class="bottom_text1">（ 同时也欢迎加入我们合作编写完善内容 ）</view>
+    </view>
+    <view class="bottom_box">
+      <view class="bottom_text3">手册系列文章由软件协会整理编写</view>
+      <view class="bottom_text3">校区图片由校学生会信息宣传部提供</view>
+      <view style="height:50rpx"></view>
+      <view class="bottom_text3">微信公众号：</view>
+      <view class="bottom_text3" style="color:blue">Socoding</view>
+      <view style="height:100rpx"></view>
+    </view>
   </view>
+
+
 
   <!-- search tab -->
   <!-- <input class='search' bindinput='bindInput'>
@@ -70,6 +81,31 @@
 
 </view>
 
+
+
+<!-- menu tab -->
+<view class='index' style="height:{{isIPX ? '120' : '80'}}rpx">
+  <image src="../../img/left-tab.png" class="icon" style="left:-250rpx;" bindtap="jump_to_last"></image>
+  <image src="../../img/right-tab.png" class="icon" style="left:270rpx;" bindtap="jump_to_next"></image>
+  <text class='index_text' style='left:300rpx;' bindtap='tap_ch'>☰目录</text>
+  <text class='index_text' style='left:120rpx;' bindtap='jump_to_last'>上一章</text>
+  <text class='index_text' style='left:500rpx;' bindtap='jump_to_next'>下一章</text>
+</view>
+<!-- <view class="control-tab">
+<image src="../../img/left-tab.png" class="icon" style="left:-230rpx;" bindtap="jump_to_last"></image>
+<image src="../../img/right-tab.png" class="icon" style="left:280rpx;" bindtap="jump_to_next"></image>
+<image src="../../img/menu-tab.png" class="icon" style="left:-90rpx;" bindtap="tap_ch"></image>
+  <text class='index_text' style='left:330rpx;' bindtap='tap_ch'>目录</text>
+  <text class='index_text' style='left:110rpx;' bindtap='jump_to_last'>上一章</text>
+  <text class='index_text' style='left:500rpx;' bindtap='jump_to_next'>下一章</text>
+</view> -->
+<!-- </scroll-view> -->
 <!-- markdown显示区 end -->
 
 <!-- ********************************************************************** -->
+
+<!-- 分享 -->
+
+  <button class="navigator share btn_nav_back btn_nav_back_text share_button" open-type="share">
+    {{text_share}}
+  </button>

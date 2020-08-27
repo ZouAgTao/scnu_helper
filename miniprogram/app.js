@@ -3,10 +3,15 @@ const Towxml = require('/towxml/main');
 App({
   globalData: {
     navHeight: 0,
-    is_to_index:false
+    is_to_index:false,
+    //判断是否是iPhone X
+    isIPX: false,
   },
   onLaunch: function ()
   {
+    //判断是否是iPhone X
+    this.checkIsIPhoneX()
+
     if (!wx.cloud)
     {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -49,5 +54,22 @@ App({
       }
     });
   },
-  towxml : new Towxml()
+  towxml : new Towxml(),
+
+  
+  checkIsIPhoneX: function () {
+    const self = this
+    wx.getSystemInfo({
+      success: function (res) {
+        // 根据 model 进行判断
+        if (res.model.search('iPhone X') != -1) {
+          self.globalData.isIPX = true
+        }
+        // 或者根据 screenHeight 进行判断
+        // if (res.screenHeight == 812) {
+        //   self.globalData.isIPX = true
+        // }
+      }
+    })
+  },
 })
